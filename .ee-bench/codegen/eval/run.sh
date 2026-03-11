@@ -62,7 +62,7 @@ COMPILE_STDERR=$(_capture_output /tmp/compile_stderr.log)
 # ============================================================
 TEST_START=$SECONDS
 set +e
-bash "$EVAL_DIR/scripts/run_script.sh" > /tmp/test_stdout.log 2> /tmp/test_stderr.log
+dotnet test {{ instance.test_framework_flag }} "{{ instance.test_project }}" --logger "{{ instance.test_logger }}" > /tmp/test_stdout.log 2> /tmp/test_stderr.log
 TEST_EXIT=$?
 set -e
 TEST_DURATION=$(_elapsed $TEST_START)
