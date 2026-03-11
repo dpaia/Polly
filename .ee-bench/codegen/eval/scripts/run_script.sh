@@ -1,0 +1,1 @@
+dotnet test {{ instance.test_framework_flag }} "{{ instance.test_project }}" --logger "{{ instance.test_logger }}"
