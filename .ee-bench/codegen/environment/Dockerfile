@@ -45,7 +45,7 @@ RUN git clone https://github.com/{{ instance.owner }}/{{ instance.repo_name }}.g
 WORKDIR /app
 RUN git checkout {{ instance.base_commit }}
 
-RUN dotnet add "./test/Polly.Core.Tests/Polly.Core.Tests.csproj" package JUnitTestLogger && \
+RUN dotnet add "{{ instance.test_project }}" package JUnitTestLogger && \
     dotnet build
 
 LABEL ee-bench.type="codegen"
